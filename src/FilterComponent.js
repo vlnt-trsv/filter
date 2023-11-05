@@ -120,49 +120,7 @@ class FilterComponent extends Component {
 
     return (
       <div className="container">
-        <div className="wrapper" id="filter">
-          {Object.keys(commonOptions).map((key) => (
-            <label key={key}>
-              {key === "experience"
-                ? "Стаж:"
-                : key === "gender"
-                ? "Пол:"
-                : key === "category"
-                ? "Категория:"
-                : key === "academicDegree"
-                ? "Ученая степень:"
-                : key === "rating"
-                ? "Оценка:"
-                : key === "numberOfReviews"
-                ? "Количество отзывов:"
-                : "Тип приёма"}
-              <select
-                placeholder="Все"
-                value={this.state[key]}
-                onChange={(e) =>
-                  this.setState({
-                    [key]: e.target.value === "Все" ? "" : e.target.value,
-                  })
-                }
-              >
-                {commonOptions[key].map((option) => (
-                  <option selected key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </label>
-          ))}
-          <button type="button" onClick={this.handleFilterChange}>
-            Применить фильтр
-          </button>
-          <button type="button" onClick={this.clearFilter}>
-            Сбросить фильтры
-          </button>
-        </div>
-
-        {/* Отображение результатов фильтрации */}
-        <div className="wrapper-card">
+        <div className="button-container">
           <button
             className="filter-toggle"
             type="button"
@@ -170,32 +128,79 @@ class FilterComponent extends Component {
           >
             {this.state.isFilterOpen ? "Открыть фильтр" : "Закрыть фильтр"}
           </button>
-          <h1>Всего врачей: {countFilteredDoctors()}</h1>
-          {this.state.filteredDoctors.map((doctor) => (
-            <div className="cards" key={doctor.id}>
-              <div className="cards-info">
-                <img
-                  src={process.env.PUBLIC_URL + "/" + doctor.photoPath}
-                  alt={doctor.name}
-                />
-                <div className="information">
-                  <p>Имя: {doctor.name}</p>
-                  <p>
-                    Стаж:{" "}
-                    {doctor.experience >= 5
-                      ? `${doctor.experience} лет`
-                      : `${doctor.experience} года`}
-                  </p>
-                  <p>Пол: {doctor.gender}</p>
-                  <p>Категория: {doctor.category}</p>
-                  <p>Ученая степень: {doctor.academicDegree}</p>
-                  <p>Оценка: {doctor.rating}</p>
-                  <p>Количество отзывов: {doctor.numberOfReviews}</p>
-                  <p>Тип приема: {doctor.admissionType}</p>
+        </div>
+        <div className="wrapper-container">
+          <div className="wrapper" id="filter">
+            {Object.keys(commonOptions).map((key) => (
+              <label key={key}>
+                {key === "experience"
+                  ? "Стаж:"
+                  : key === "gender"
+                  ? "Пол:"
+                  : key === "category"
+                  ? "Категория:"
+                  : key === "academicDegree"
+                  ? "Ученая степень:"
+                  : key === "rating"
+                  ? "Оценка:"
+                  : key === "numberOfReviews"
+                  ? "Количество отзывов:"
+                  : "Тип приёма"}
+                <select
+                  className="select-css"
+                  placeholder="Все"
+                  value={this.state[key]}
+                  onChange={(e) =>
+                    this.setState({
+                      [key]: e.target.value === "Все" ? "" : e.target.value,
+                    })
+                  }
+                >
+                  {commonOptions[key].map((option) => (
+                    <option selected key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            ))}
+            <button type="button" onClick={this.handleFilterChange}>
+              Применить фильтр
+            </button>
+            <button type="button" onClick={this.clearFilter}>
+              Сбросить фильтры
+            </button>
+          </div>
+
+          {/* Отображение результатов фильтрации */}
+          <div className="wrapper-card">
+            <h1>Всего врачей: {countFilteredDoctors()}</h1>
+            {this.state.filteredDoctors.map((doctor) => (
+              <div className="cards" key={doctor.id}>
+                <div className="cards-info">
+                  <img
+                    src={process.env.PUBLIC_URL + "/" + doctor.photoPath}
+                    alt={doctor.name}
+                  />
+                  <div className="information">
+                    <p>Имя: {doctor.name}</p>
+                    <p>
+                      Стаж:{" "}
+                      {doctor.experience >= 5
+                        ? `${doctor.experience} лет`
+                        : `${doctor.experience} года`}
+                    </p>
+                    <p>Пол: {doctor.gender}</p>
+                    <p>Категория: {doctor.category}</p>
+                    <p>Ученая степень: {doctor.academicDegree}</p>
+                    <p>Оценка: {doctor.rating}</p>
+                    <p>Количество отзывов: {doctor.numberOfReviews}</p>
+                    <p>Тип приема: {doctor.admissionType}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     );
