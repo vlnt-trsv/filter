@@ -14,8 +14,27 @@ class FilterComponent extends Component {
       numberOfReviews: "",
       admissionType: "",
       filteredDoctors: doctorsData,
+      isFilterOpen: false,
     };
   }
+
+  toggleFilter = () => {
+    const filterElement = document.getElementById("filter");
+
+    if (filterElement) {
+      // Если фильтр открыт, закрываем его, и наоборот
+      if (this.state.isFilterOpen) {
+        filterElement.style.display = "flex";
+        console.log("flex");
+      } else {
+        filterElement.style.display = "none";
+        console.log("none");
+      }
+
+      // Инвертируем состояние фильтра
+      this.setState({ isFilterOpen: !this.state.isFilterOpen });
+    }
+  };
 
   filterDoctors = () => {
     const {
@@ -75,21 +94,21 @@ class FilterComponent extends Component {
       return this.state.filteredDoctors.length;
     };
 
-    let isFilterOpen = false;
+    // let isFilterOpen = false;
 
-    const toggleFilter = () => {
-      const filterElement = document.getElementById("filter");
+    // const toggleFilter = () => {
+    //   const filterElement = document.getElementById("filter");
 
-      // Если фильтр открыт, закрываем его, и наоборот
-      if (isFilterOpen) {
-        filterElement.style.display = "flex";
-      } else {
-        filterElement.style.display = "none";
-      }
+    //   // Если фильтр открыт, закрываем его, и наоборот
+    //   if (isFilterOpen) {
+    //     filterElement.style.display = "flex";
+    //   } else {
+    //     filterElement.style.display = "none";
+    //   }
 
-      // Инвертируем состояние фильтра
-      isFilterOpen = !isFilterOpen;
-    };
+    //   // Инвертируем состояние фильтра
+    //   isFilterOpen = !isFilterOpen;
+    // };
 
     return (
       <div className="container">
@@ -131,9 +150,9 @@ class FilterComponent extends Component {
           <button
             className="filter-toggle"
             type="button"
-            onClick={toggleFilter}
+            onClick={this.toggleFilter}
           >
-            {isFilterOpen ? "Закрыть фильтр" : "Открыть фильтр"}
+            {this.state.isFilterOpen ? "Открыть фильтр" : "Закрыть фильтр"}
           </button>
           <h1>Всего врачей: {countFilteredDoctors()}</h1>
           {this.state.filteredDoctors.map((doctor) => (
