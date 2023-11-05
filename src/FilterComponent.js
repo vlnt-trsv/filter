@@ -25,15 +25,26 @@ class FilterComponent extends Component {
       // Если фильтр открыт, закрываем его, и наоборот
       if (this.state.isFilterOpen) {
         filterElement.style.display = "flex";
-        console.log("flex");
       } else {
         filterElement.style.display = "none";
-        console.log("none");
       }
 
       // Инвертируем состояние фильтра
       this.setState({ isFilterOpen: !this.state.isFilterOpen });
     }
+  };
+
+  clearFilter = () => {
+    // Очистить все параметры фильтрации и обновить состояние
+    this.setState({
+      experience: "",
+      gender: "",
+      category: "",
+      academicDegree: "",
+      rating: "",
+      numberOfReviews: "",
+      admissionType: "",
+    });
   };
 
   filterDoctors = () => {
@@ -47,11 +58,11 @@ class FilterComponent extends Component {
       admissionType,
     } = this.state;
 
-    // Параметры филтрации
+    // Параметры фильтрации
 
     const filteredDoctors = doctorsData.filter((doctor) => {
       return (
-        (experience === "Все" || doctor.experience === experience) && // Фильтр по стажу
+        (experience === "" || doctor.experience === experience) && // Фильтр по стажу
         (gender === "" || doctor.gender === gender) && // Фильтр по полу
         (category === "" || doctor.category === category) && // Фильтр по категории
         (academicDegree === "" || doctor.academicDegree === academicDegree) && // Фильтр по ученой степени
@@ -82,33 +93,17 @@ class FilterComponent extends Component {
         "От 10 до 20 лет",
         "Свыше 20 лет",
       ],
-      gender: ["", "Мужской", "Женский"],
-      category: ["", "Первая", "Вторая", "Высшая"],
-      academicDegree: ["", "Бакалавр", "Магистр", "Доктор наук"],
-      rating: ["", "4.5", "4"],
-      numberOfReviews: ["", "Меньше 50", "50-100", "Больше 100"],
-      admissionType: ["", "Очное", "Заочное", "Дистанционное"],
+      gender: ["Все", "Мужской", "Женский"],
+      category: ["Все", "Первая", "Вторая", "Высшая"],
+      academicDegree: ["Все", "Кандидат медицинских наук", "Доктор медицинских наук", "Профессор"],
+      rating: ["Все", "4.5", "4"],
+      numberOfReviews: ["Все", "Меньше 50", "50-100", "Больше 100"],
+      admissionType: ["Все", "Очное", "Заочное", "Дистанционное"],
     };
 
     const countFilteredDoctors = () => {
       return this.state.filteredDoctors.length;
     };
-
-    // let isFilterOpen = false;
-
-    // const toggleFilter = () => {
-    //   const filterElement = document.getElementById("filter");
-
-    //   // Если фильтр открыт, закрываем его, и наоборот
-    //   if (isFilterOpen) {
-    //     filterElement.style.display = "flex";
-    //   } else {
-    //     filterElement.style.display = "none";
-    //   }
-
-    //   // Инвертируем состояние фильтра
-    //   isFilterOpen = !isFilterOpen;
-    // };
 
     return (
       <div className="container">
@@ -129,11 +124,13 @@ class FilterComponent extends Component {
                 ? "Количество отзывов:"
                 : "Тип приёма"}
               <select
+                placeholder="Все"
                 value={this.state[key]}
-                onChange={(e) => this.setState({ [key]: e.target.value })}
+                onChange={(e) => this.setState({ [key]: e.target.value === "Все" ? "" : e.target.value })}
+
               >
                 {commonOptions[key].map((option) => (
-                  <option key={option} value={option}>
+                  <option selected key={option} value={option}>
                     {option}
                   </option>
                 ))}
@@ -142,6 +139,9 @@ class FilterComponent extends Component {
           ))}
           <button type="button" onClick={this.handleFilterChange}>
             Применить фильтр
+          </button>
+          <button type="button" onClick={this.clearFilter}>
+            Сбросить фильтры
           </button>
         </div>
 
