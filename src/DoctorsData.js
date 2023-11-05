@@ -43,6 +43,28 @@ const doctorsData = [
     numberOfReviews: 101,
     admissionType: "Заочное",
   },
+  {
+    id: 5,
+    name: "Иванова Мария Давидовна",
+    experience: "От 10 до 20 лет",
+    gender: "Женский",
+    category: "Высшая",
+    academicDegree: "Кандидат медицинских наук",
+    rating: 5,
+    numberOfReviews: 22,
+    admissionType: "Очное",
+  },
+  {
+    id: 6,
+    name: "Чатинян Гарик Артурович",
+    experience: "Свыше 20 лет",
+    gender: "Мужской",
+    category: "Высшая",
+    academicDegree: "Кандидат медицинских наук",
+    rating: 4.2,
+    numberOfReviews: 22,
+    admissionType: "Очное",
+  },
   // Добавьте других врачей с аналогичными данными
 ];
 
