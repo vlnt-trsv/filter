@@ -111,7 +111,7 @@ class FilterComponent extends Component {
       ],
       rating: ["Все", "4.5", "4"],
       numberOfReviews: ["Все", "Меньше 50", "50-100", "Больше 100"],
-      admissionType: ["Все", "Очное", "Заочное", "Дистанционное"],
+      admissionType: ["Все", "Клиника", "Онлайн", "На дому"],
     };
 
     const countFilteredDoctors = () => {
