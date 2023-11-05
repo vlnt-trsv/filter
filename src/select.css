@@ -48,7 +48,7 @@ button {
   background: #c5e6ff;
 }
 
-.card {
+.wrapper-card {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -56,8 +56,31 @@ button {
   margin: 30px;
 }
 
-.card2 {
+.cards {
   background-color: #c5e6ff;
   border-radius: 16px;
   padding: 30px;
+}
+
+.cards-info {
+  gap: 30px;
+  display: flex;
+  flex-direction: row;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.filter-toggle {
+  width: 20%;
+}
+
+img {
+  background-size: cover;
+  width: 10%;
+  height: 10%;
+  border-radius: 16px;
 }

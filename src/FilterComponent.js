@@ -65,7 +65,7 @@ class FilterComponent extends Component {
       ],
       gender: ["", "Мужской", "Женский"],
       category: ["", "Первая", "Вторая", "Высшая"],
-      academicDegree: ["", "Кандидат медицинских наук", "Доктор медицинских наук", "Профессор"],
+      academicDegree: ["", "Бакалавр", "Магистр", "Доктор наук"],
       rating: ["", "4.5", "4"],
       numberOfReviews: ["", "Меньше 50", "50-100", "Больше 100"],
       admissionType: ["", "Очное", "Заочное", "Дистанционное"],
@@ -75,9 +75,25 @@ class FilterComponent extends Component {
       return this.state.filteredDoctors.length;
     };
 
+    let isFilterOpen = false;
+
+    const toggleFilter = () => {
+      const filterElement = document.getElementById("filter");
+
+      // Если фильтр открыт, закрываем его, и наоборот
+      if (isFilterOpen) {
+        filterElement.style.display = "flex";
+      } else {
+        filterElement.style.display = "none";
+      }
+
+      // Инвертируем состояние фильтра
+      isFilterOpen = !isFilterOpen;
+    };
+
     return (
       <div className="container">
-        <div className="wrapper">
+        <div className="wrapper" id="filter">
           {Object.keys(commonOptions).map((key) => (
             <label key={key}>
               {key === "experience"
@@ -111,19 +127,32 @@ class FilterComponent extends Component {
         </div>
 
         {/* Отображение результатов фильтрации */}
-        <div className="card">
+        <div className="wrapper-card">
+          <button
+            className="filter-toggle"
+            type="button"
+            onClick={toggleFilter}
+          >
+            {isFilterOpen ? "Закрыть фильтр" : "Открыть фильтр"}
+          </button>
           <h1>Всего врачей: {countFilteredDoctors()}</h1>
           {this.state.filteredDoctors.map((doctor) => (
-            <div className="card2" key={doctor.id}>
-              <div>
-                <p>Имя: {doctor.name}</p>
-                <p>Стаж: {doctor.experience}</p>
-                <p>Пол: {doctor.gender}</p>
-                <p>Категория: {doctor.category}</p>
-                <p>Ученая степень: {doctor.academicDegree}</p>
-                <p>Оценка: {doctor.rating}</p>
-                <p>Количество отзывов: {doctor.numberOfReviews}</p>
-                <p>Тип приема: {doctor.admissionType}</p>
+            <div className="cards" key={doctor.id}>
+              <div className="cards-info">
+                <img
+                  src={process.env.PUBLIC_URL + "/" + doctor.photoPath}
+                  alt={doctor.name}
+                />
+                <div className="information">
+                  <p>Имя: {doctor.name}</p>
+                  <p>Стаж: {doctor.experience}</p>
+                  <p>Пол: {doctor.gender}</p>
+                  <p>Категория: {doctor.category}</p>
+                  <p>Ученая степень: {doctor.academicDegree}</p>
+                  <p>Оценка: {doctor.rating}</p>
+                  <p>Количество отзывов: {doctor.numberOfReviews}</p>
+                  <p>Тип приема: {doctor.admissionType}</p>
+                </div>
               </div>
             </div>
           ))}

@@ -1,70 +1,23 @@
+class Doctor {
+  constructor(id, name, experience, gender, category, academicDegree, rating, numberOfReviews, admissionType, photoPath) {
+    this.id = id;
+    this.name = name;
+    this.experience = experience;
+    this.gender = gender;
+    this.category = category;
+    this.academicDegree = academicDegree;
+    this.rating = rating;
+    this.numberOfReviews = numberOfReviews;
+    this.admissionType = admissionType;
+    this.photoPath = photoPath; // Путь к фотографии в папке public/images
+  }
+}
+
 const doctorsData = [
-  {
-    id: 1,
-    name: "Доктор Иванов",
-    experience: "Не более 5 лет",
-    gender: "Мужской",
-    category: "Первая",
-    academicDegree: "Кандидат медицинских наук",
-    rating: 4.8,
-    numberOfReviews: 56,
-    admissionType: "Очное",
-  },
-  {
-    id: 2,
-    name: "Доктор Петрова",
-    experience: "От 5 до 10 лет",
-    gender: "Женский",
-    category: "Вторая",
-    academicDegree: "Доктор медицинских наук",
-    rating: 5,
-    numberOfReviews: 24,
-    admissionType: "Заочное",
-  },
-  {
-    id: 3,
-    name: "Доктор Анна",
-    experience: "От 5 до 10 лет",
-    gender: "Женский",
-    category: "Вторая",
-    academicDegree: "Доктор медицинских наук",
-    rating: 2.4,
-    numberOfReviews: 72,
-    admissionType: "Заочное",
-  },
-  {
-    id: 4,
-    name: "Доктор Алексей",
-    experience: "Свыше 20 лет",
-    gender: "Мужской",
-    category: "Вторая",
-    academicDegree: "Доктор медицинских наук",
-    rating: 3,
-    numberOfReviews: 101,
-    admissionType: "Заочное",
-  },
-  {
-    id: 5,
-    name: "Иванова Мария Давидовна",
-    experience: "От 10 до 20 лет",
-    gender: "Женский",
-    category: "Высшая",
-    academicDegree: "Кандидат медицинских наук",
-    rating: 5,
-    numberOfReviews: 22,
-    admissionType: "Очное",
-  },
-  {
-    id: 6,
-    name: "Чатинян Гарик Артурович",
-    experience: "Свыше 20 лет",
-    gender: "Мужской",
-    category: "Высшая",
-    academicDegree: "Кандидат медицинских наук",
-    rating: 4.2,
-    numberOfReviews: 22,
-    admissionType: "Очное",
-  },
+  new Doctor(1, "Иванова Мария Давидован", "Не более 5 лет", "Мужской", "Первая", "Кандидат медицинских наук", 4.8, 56, "Очное", "../images/ivanov.jpg"),
+  new Doctor(2, "Чатинян Гарик Артурович", "От 5 до 10 лет", "Женский", "Вторая", "Доктор медицинских наук", 5, 24, "Заочное", "../images/ivanov.jpg"),
+  new Doctor(3, "Доктор Анна", "От 5 до 10 лет", "Женский", "Вторая", "Доктор медицинских наук", 2.4, 72, "Заочное", "../images/ivanov.jpg"),
+  new Doctor(4, "Доктор Алексей", "Свыше 20 лет", "Мужской", "Первая", "Доктор медицинских наук", 3, 101, "Заочное", "../images/ivanov.jpg"),
   // Добавьте других врачей с аналогичными данными
 ];
 
