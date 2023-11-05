@@ -62,18 +62,26 @@ class FilterComponent extends Component {
 
     const filteredDoctors = doctorsData.filter((doctor) => {
       return (
-        (experience === "" || doctor.experience === experience) && // Фильтр по стажу
-        (gender === "" || doctor.gender === gender) && // Фильтр по полу
-        (category === "" || doctor.category === category) && // Фильтр по категории
-        (academicDegree === "" || doctor.academicDegree === academicDegree) && // Фильтр по ученой степени
-        (rating === "" || doctor.rating >= parseFloat(rating)) && // Фильтр по оценке
-        (numberOfReviews === "" || // Фильтр по количеству отзывов
+        (experience === "" ||
+          (experience === "Не более 5 лет" && doctor.experience < 5) ||
+          (experience === "От 5 до 10 лет" &&
+            doctor.experience >= 5 &&
+            doctor.experience <= 10) ||
+          (experience === "От 10 до 20 лет" &&
+            doctor.experience >= 10 &&
+            doctor.experience <= 20) ||
+          (experience === "Свыше 20 лет" && doctor.experience > 20)) &&
+        (gender === "" || doctor.gender === gender) &&
+        (category === "" || doctor.category === category) &&
+        (academicDegree === "" || doctor.academicDegree === academicDegree) &&
+        (rating === "" || doctor.rating >= parseFloat(rating)) &&
+        (numberOfReviews === "" ||
           (numberOfReviews === "Меньше 50" && doctor.numberOfReviews < 50) ||
           (numberOfReviews === "50-100" &&
             doctor.numberOfReviews >= 50 &&
             doctor.numberOfReviews <= 100) ||
           (numberOfReviews === "Больше 100" && doctor.numberOfReviews > 100)) &&
-        (admissionType === "" || doctor.admissionType === admissionType) // Фильтр по типу приема
+        (admissionType === "" || doctor.admissionType === admissionType)
       );
     });
 
@@ -95,7 +103,12 @@ class FilterComponent extends Component {
       ],
       gender: ["Все", "Мужской", "Женский"],
       category: ["Все", "Первая", "Вторая", "Высшая"],
-      academicDegree: ["Все", "Кандидат медицинских наук", "Доктор медицинских наук", "Профессор"],
+      academicDegree: [
+        "Все",
+        "Кандидат медицинских наук",
+        "Доктор медицинских наук",
+        "Профессор",
+      ],
       rating: ["Все", "4.5", "4"],
       numberOfReviews: ["Все", "Меньше 50", "50-100", "Больше 100"],
       admissionType: ["Все", "Очное", "Заочное", "Дистанционное"],
@@ -126,8 +139,11 @@ class FilterComponent extends Component {
               <select
                 placeholder="Все"
                 value={this.state[key]}
-                onChange={(e) => this.setState({ [key]: e.target.value === "Все" ? "" : e.target.value })}
-
+                onChange={(e) =>
+                  this.setState({
+                    [key]: e.target.value === "Все" ? "" : e.target.value,
+                  })
+                }
               >
                 {commonOptions[key].map((option) => (
                   <option selected key={option} value={option}>
@@ -164,7 +180,12 @@ class FilterComponent extends Component {
                 />
                 <div className="information">
                   <p>Имя: {doctor.name}</p>
-                  <p>Стаж: {doctor.experience}</p>
+                  <p>
+                    Стаж:{" "}
+                    {doctor.experience >= 5
+                      ? `${doctor.experience} лет`
+                      : `${doctor.experience} года`}
+                  </p>
                   <p>Пол: {doctor.gender}</p>
                   <p>Категория: {doctor.category}</p>
                   <p>Ученая степень: {doctor.academicDegree}</p>
