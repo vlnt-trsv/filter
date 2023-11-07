@@ -102,19 +102,11 @@ button {
   font-family: Raleway;
   font-size: 28px;
   font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-
-.filter-toggle-2 {
-  color: #5D88A8;
-  text-align: center;
-  font-family: Raleway;
-  font-size: 25px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
+
+
 
 img {
   background-size: cover;
