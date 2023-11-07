@@ -1,65 +1,5 @@
-@font-face {
-  font-family: "Raleway";
-  src: local("Raleway-Regular"),
-    url("../public/fonts/Raleway-Regular.woff2") format("woff2"),
-    url("../public/fonts/Raleway-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Raleway";
-  src: local("Raleway-Medium"),
-    url("../public/fonts/Raleway-Medium.woff2") format("woff2"),
-    url("../public/fonts/Raleway-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Raleway";
-  src: local("Raleway-Bold"),
-    url("../public/fonts/Raleway-Bold.woff2") format("woff2"),
-    url("../public/fonts/Raleway-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bahnschrift";
-  src: local("Bahnschrift-Light"),
-    url("../public/fonts/Bahnschrift-Light.woff2") format("woff2"),
-    url("../public/fonts/Bahnschrift-Light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bahnschrift";
-  src: local("Bahnschrift-Regular"),
-    url("../public/fonts/Bahnschrift-Regular.woff2") format("woff2"),
-    url("../public/fonts/Bahnschrift-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Bahnschrift";
-  src: local("Bahnschrift-Bold"),
-    url("../public/fonts/Bahnschrift-Bold.woff2") format("woff2"),
-    url("../public/fonts/Bahnschrift-Bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 .container {
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "Raleway", sans-serif;
   margin: 120px;
 }
 
@@ -186,7 +126,6 @@ img {
 .select-css {
   display: block;
   font-size: 16px;
-  font-family: sans-serif;
   font-weight: 700;
   line-height: 1.3;
   padding: 8px;
