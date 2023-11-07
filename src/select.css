@@ -1,6 +1,10 @@
 .container {
   font-family: "Raleway", sans-serif;
-  margin: 120px;
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  overflow: auto;
+  padding: 30px 120px;
 }
 
 .heading {
@@ -73,46 +77,141 @@ button {
 .wrapper-card {
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: 30px;
+  width: 100%;
 }
 
 .cards {
-  background-color: #fff;
-  box-shadow: 0px 0px 12.76596px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 13px;
-  padding: 30px;
-}
-
-.cards-info {
-  gap: 30px;
   display: flex;
   flex-direction: row;
+  background-color: #fff;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 30px;
+  gap: 30px;
+}
+
+.cards:hover {
+  outline: 2px solid #ffb987;
+}
+
+.left-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.middle-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 25%;
+  width: 100%;
+}
+
+.middle-info-up {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25%;
+}
+
+.middle-info-up h2 {
+  color: #4b62b5;
+}
+
+.middle-info-down {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.middle-info-down span {
+  display: flex;
+  gap: 15px;
+}
+
+.right-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.right-info-up {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25%;
+}
+
+.right-info-up ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.right-info-up ul > li {
+  padding-bottom: 5px;
+}
+
+.right-info-up ul > li:before {
+  content: "*";
+  background: #fd5050;
+  color: #fd5050;
+  font-size: 12px;
+  padding: 0.2px 5px;
+  margin: 0px 10px 0px 0px;
+  border-radius: 50%;
+}
+
+.right-info-up ul > li:last-child:before {
+  background: #30a743;
+  color: #30a743;
+}
+
+.right-info-down {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.right-info-down button {
+  width: 350px;
+  height: 60px;
+  justify-content: center;
+  font-family: "Raleway";
+  color: black;
+  background: white;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+}
+
+.right-info-down button:hover {
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.5);
+}
+
+.card_img {
+  background-color: #fff;
+  background-size: cover;
+  max-width: 100%;
+  border-radius: 16px;
 }
 
 .information {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
 }
 
 .filter-toggle {
   width: auto;
-  color: #5D88A8;
+  color: #5d88a8;
   text-align: center;
   font-family: Raleway;
   font-size: 28px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-}
-
-
-
-img {
-  background-size: cover;
-  width: 10%;
-  height: 10%;
-  border-radius: 16px;
 }
 
 .select-css {
@@ -146,6 +245,8 @@ img {
   outline: none;
 }
 
+/* Pop Up */
+
 .popup {
   display: none;
   position: fixed;
@@ -161,7 +262,7 @@ img {
 .popup-content {
   position: relative;
   top: 50%;
-  left: 0;
+  left: 1%;
   /* Изменено на 0 для прикрепления к левому краю */
   transform: translate(0, -50%);
   /* Изменено первое значение на 0 */
@@ -182,7 +283,6 @@ img {
   gap: 15px;
 
   border-radius: 16px;
-
 }
 
 /* Отображаем попап, если состояние isPopupOpen равно true */
