@@ -113,7 +113,7 @@ class FilterComponent extends Component {
 
     return (
       <div className="container">
-        <h1>Рейтинг хирургов</h1>
+        <h1 className="heading">Рейтинг хирургов</h1>
         <div className="button-container">
           <div className="button-container-left">
             <button
@@ -138,7 +138,7 @@ class FilterComponent extends Component {
               </svg>
               Фильтр
             </button>
-            <button className="filter-toggle" type="button">
+            <button className="filter-toggle filter-toggle-2" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -167,7 +167,7 @@ class FilterComponent extends Component {
               </svg>
               Дата
             </button>
-            <button className="filter-toggle" type="button">
+            <button className="filter-toggle filter-toggle-2" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -187,7 +187,7 @@ class FilterComponent extends Component {
             </button>
           </div>
           <div className="button-container-right">
-            <button className="filter-toggle" type="button">
+            <button className="filter-toggle filter-toggle-2" type="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
