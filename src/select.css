@@ -28,13 +28,17 @@
 .button-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
   width: 100%;
   margin: 30px 0;
 }
 
-.button-container-left {
+.button-container-left,
+.button-container-right {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 30px;
 }
 
@@ -115,7 +119,8 @@ button {
   width: 100%;
 }
 
-.middle-info-up {
+.middle-info-up,
+.border {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -213,7 +218,6 @@ button {
   color: #5d88a8;
   text-align: center;
   font-family: Raleway;
-  font-size: 28px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -293,4 +297,59 @@ button {
 /* Отображаем попап, если состояние isPopupOpen равно true */
 .popup.active {
   display: block;
+}
+
+/* Adaptive */
+
+@media (max-width: 390px) {
+  .container {
+    padding: 15px 15px;
+  }
+  .button-container {
+    gap: 15px;
+  }
+  .button-container-left {
+    gap: 15px;
+  }
+  .button-container-right {
+    width: 100%;
+  }
+  .filter-toggle {
+    width: 100%;
+  }
+
+  .cards,
+  .information {
+    flex-direction: column;
+  }
+  .cards {
+    padding: 30px;
+  }
+  .middle-info-up,
+  .border {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .middle-info-up h2 {
+    font-size: 24px;
+  }
+  .right-info-up{
+    margin-bottom: 30px;
+  }
+  .right-info-up h2 {
+    font-size: 16px;
+  }
+  .right-info-down button{
+    font-size: 16px;
+    font-weight: bold;
+    width: 300px;
+  }
+  .border {
+    padding: 10px 0;
+    border-top: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+  }
+  .middle-info-down {
+    display: none;
+  }
 }

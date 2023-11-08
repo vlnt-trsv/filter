@@ -299,17 +299,17 @@ class FilterComponent extends Component {
                   <div className="information">
                     <div className="middle-info">
                       <div className="middle-info-up">
-                        <h2>
-                          {doctor.name} ( {doctor.gender} )
-                        </h2>
-                        <h4>
-                          Стаж{" "}
-                          {doctor.experience >= 5
-                            ? `${doctor.experience} лет`
-                            : `${doctor.experience} года`}
-                        </h4>
-                        <p>{doctor.category}</p>
-                        <p>{doctor.academicDegree}</p>
+                        <h2>{doctor.name}</h2>
+                        <div className="border">
+                          <h4>
+                            Стаж{" "}
+                            {doctor.experience >= 5
+                              ? `${doctor.experience} лет`
+                              : `${doctor.experience} года`}
+                          </h4>
+                          <p>{doctor.category}</p>
+                          <p>{doctor.academicDegree}</p>
+                        </div>
                       </div>
                       <div className="middle-info-down">
                         <h4>Запись на приём: ( {doctor.admissionType} )</h4>
