@@ -352,4 +352,21 @@ button {
   .middle-info-down {
     display: none;
   }
+
+  .popup-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+    max-width: 100%;
+    width: 100%;
+    left: 0px;
+  }
+  .popup-content label select {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .popup-content button {
+    width: 100%;
+  }
 }

@@ -299,7 +299,7 @@ class FilterComponent extends Component {
                   <div className="information">
                     <div className="middle-info">
                       <div className="middle-info-up">
-                        <h2>{doctor.name}</h2>
+                        <h2>{doctor.name} {/* ({doctor.gender})*/} </h2>
                         <div className="border">
                           <h4>
                             Стаж{" "}
