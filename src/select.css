@@ -124,7 +124,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 25%;
+  margin-bottom: 10%;
 }
 
 .middle-info-up h2 {
@@ -187,7 +187,7 @@ button {
 }
 
 .right-info-down button {
-  width: 350px;
+  max-width: 350px;
   height: 60px;
   justify-content: center;
   font-family: "Raleway";
@@ -301,7 +301,7 @@ button {
 
 /* Adaptive */
 
-@media (max-width: 390px) {
+@media (min-width: 390px) and (max-width: 760px) {
   .container {
     padding: 15px 15px;
   }
@@ -333,16 +333,19 @@ button {
   .middle-info-up h2 {
     font-size: 24px;
   }
-  .right-info-up{
+  .right-info-up {
     margin-bottom: 30px;
+  }
+  .right-info-down {
+    width: 100%;
   }
   .right-info-up h2 {
     font-size: 16px;
   }
-  .right-info-down button{
+  .right-info-down button {
     font-size: 16px;
     font-weight: bold;
-    width: 300px;
+    max-width: 100%;
   }
   .border {
     padding: 10px 0;
@@ -368,5 +371,24 @@ button {
 
   .popup-content button {
     width: 100%;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 760px) {
+  .information {
+    flex-direction: column;
+  }
+
+  .middle-info {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .right-info-up {
+    margin-bottom: 10%;
+  }
+  .right-info-down button {
+    font-size: 16px;
+    font-weight: bold;
   }
 }
