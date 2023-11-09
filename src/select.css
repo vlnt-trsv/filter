@@ -59,6 +59,7 @@ label {
 button {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
   padding: 8px;
   border: none;
