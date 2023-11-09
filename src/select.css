@@ -307,9 +307,11 @@ button {
   }
   .button-container {
     gap: 15px;
+    width: 100%;
   }
   .button-container-left {
     gap: 15px;
+    width: 100%;
   }
   .button-container-right {
     width: 100%;
