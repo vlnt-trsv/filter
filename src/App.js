@@ -1,10 +1,10 @@
 import './App.css';
-import FilterComponent2 from './FilterComponent2';
+import FilterComponent from './FilterComponent';
 
 function App() {
   return (
     <div className="App">
-      <FilterComponent2 />
+      <FilterComponent />
     </div>
   );
 }
